@@ -4,6 +4,13 @@
 
 	- Front end:
 		- begin with a front page with login
+			- set up redux folder
+			- set up login reducer and master reducer
+			- set ups store, and then conditionally render home page or login based on state
+			- fetch call to add user on reg page 
+				- ??? headers: {'Content-Type': 'application/json'}
+				- https://stackoverflow.com/questions/39842013/fetch-post-with-body-data-not-working-params-empty
+			- added action to register user
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

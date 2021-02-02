@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import Login from './components/Login';
 import Home from './components/Home';
+import Register from './components/Register';
+
 
 const App = () => {
 
@@ -21,7 +23,6 @@ const App = () => {
   return (
     <div className="App">
     <Router>
-      <div>
         {/*
           A <Switch> looks through all its children <Route>
           elements and renders the first one whose path
@@ -34,8 +35,10 @@ const App = () => {
             {/*if logged in home page, if not, login/register page*/}
             {loginInfo.isLoggedIn ? <Home /> : <Login/>}
           </Route>
+          <Route exact path="/register">
+            <Register/>
+          </Route>
         </Switch>
-      </div>
     </Router>
     </div>
   );

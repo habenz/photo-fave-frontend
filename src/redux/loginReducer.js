@@ -12,6 +12,9 @@ const reducer = (state = initialState, action) => {
 			return {isLoggedIn: true, ...action.payload};
 		case 'LOGOUT':
 			return initialState;
+		case 'REGISTER':
+			console.log('in reducer, case is REGISTER')
+			return {isLoggedIn: true, ...action.payload};
 		default:
 			return state;
 	}
