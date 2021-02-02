@@ -1,23 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
 
-function App() {
+import Login from './components/Login';
+import Home from './components/Home';
+
+const App = () => {
+
+  const loginInfo = useSelector(state => state.login);
+
+  // const dispatch = useDispatch();
+
+  // useEffect(() => {
+
+  // }, [dispatch]); 
+  // why pass dispatch as a dependancy? https://stackoverflow.com/a/58061735
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Router>
+      <div>
+        {/*
+          A <Switch> looks through all its children <Route>
+          elements and renders the first one whose path
+          matches the current URL. Use a <Switch> any time
+          you have multiple routes, but you want only one
+          of them to render at a time
+        */}
+        <Switch>
+          <Route exact path="/">
+            {/*if logged in home page, if not, login/register page*/}
+            {loginInfo.isLoggedIn ? <Home /> : <Login/>}
+          </Route>
+        </Switch>
+      </div>
+    </Router>
     </div>
   );
 }
