@@ -1,8 +1,6 @@
-const API_URL_BASE = 'http://localhost:5000'
+import {REGISTER, LOGIN, LOGOUT} from './actionTypes.js';
 
-const REGISTER = 'REGISTER';
-const LOGIN = 'LOGIN';
-const LOGOUT = 'LOGOUT';
+const API_URL_BASE = 'http://localhost:5000'
 
 // explicit destructing means it's impossible to get an error from the server for missing paths
 // pass in history for routing conditional on server response (credit: Jade)

@@ -1,3 +1,5 @@
+import {REGISTER, LOGIN, LOGOUT} from './actionTypes.js';
+
 // Manages the login status for the application
 
 const initialState = {
@@ -8,11 +10,11 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
 	switch (action.type) {
-		case 'LOGIN':
+		case LOGIN:
 			return {isLoggedIn: true, ...action.payload};
-		case 'LOGOUT':
+		case LOGOUT:
 			return initialState;
-		case 'REGISTER':
+		case REGISTER:
 			return {isLoggedIn: true, ...action.payload};
 		default:
 			return state;
