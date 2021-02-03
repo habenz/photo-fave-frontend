@@ -10,6 +10,7 @@ import reducers from './redux'; // no need to specify index.js
 import App from './App';
 
 const store = createStore(reducers, compose(applyMiddleware(thunk)));
+store.subscribe(() => console.log(store.getState()));
 
 ReactDOM.render(
   <React.StrictMode>

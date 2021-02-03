@@ -1,17 +1,14 @@
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import styles from './Register.module.css'
 
-import {register, test} from '../redux/loginActions.js';
-
-const API_URL_BASE = 'http://localhost:5000'
+import {register} from '../redux/loginActions.js';
 
 const Register = () => {
 
 	const dispatch = useDispatch();
-	const loginStatus = useSelector(state => state.login.isLoggedIn);
 	const history = useHistory();
 
 
@@ -23,9 +20,7 @@ const Register = () => {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		console.log("submit", inputs.username, inputs.password);
-		dispatch(register(inputs))
-		// setValue({username: "", password:''})
-		history.push('/');
+		dispatch(register(inputs, history))
 	}
 
 	const handleChange = (event) => {

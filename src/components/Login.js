@@ -1,43 +1,27 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
-const API_URL_BASE = 'http://localhost:5000'
+import {login} from '../redux/loginActions.js';
 
 const Login = () => {
 
+	const dispatch = useDispatch();
+	const history = useHistory();
+
+	// ok to use compent state for form input, src: redux docs
 	const [inputs, setValue] = useState({
 		username: '',
 		password: ''
 	});
 
-	// const handleSubmit = (event) => {
-	// 	event.preventDefault();
-	// 	console.log(inputs.username, inputs.password);
-	// 	fetch(API_URL_BASE+"/add", {
-	// 		method: 'POST',
-	// 		//mode?
-	// 		body: JSON.stringify(inputs)
-	// 	})
-	// 		.then((response) => console.log(response))
-	// 		.then(() => setValue({username: "", password:''}))
-
-	// }
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		console.log("submit", inputs.username, inputs.password);
-		const url = API_URL_BASE+"/users/add";
-		console.log(url);
-		console.log('inputs', JSON.stringify(inputs));
-		fetch(url , {
-			method: 'POST',
-			headers: {'Content-Type': 'application/json'},
-			//mode?
-			body: JSON.stringify(inputs)
-		})
-			.then((response) => response.json())
-			.then((json) => console.log(json))
-			.then(() => setValue({username: "", password:''}))
 
+		dispatch(login(inputs, history));
+		// If password is wrong page won't redirect
+		setValue({...inputs, password:''});
 	}
 
 	const handleChange = (event) => {
