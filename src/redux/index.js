@@ -1,6 +1,7 @@
 import {combineReducers} from 'redux';
-import login from './loginReducer'
+import login from './loginReducer';
+import photos from './photoReducer';
 
 export default combineReducers({
-	login
+	login, photos
 });
