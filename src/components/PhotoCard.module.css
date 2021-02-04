@@ -1,9 +1,17 @@
 .card {
-	height: 30vh;
-/*	width: 90%;
-*/	overflow: hidden;
+	height: min(30vh, 30vw);
+	overflow: hidden;
+	position: relative;
+	background-size: contain;
 }
 
 .img {
-	width: 33vw;
+	width: 100%;
 }
+
+.like {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
