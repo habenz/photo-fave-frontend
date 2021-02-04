@@ -1,0 +1,14 @@
+.nav {
+	display: flex;
+	margin: .5rem 0;
+}
+
+.navButton {
+	list-style: none;
+	margin-right: 1.2rem;
+}
+
+.navButton a {
+	text-decoration: none;
+	font-size: 120%;
+}

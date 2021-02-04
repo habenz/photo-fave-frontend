@@ -1,17 +1,19 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
 
+import styles from './Navbar.module.css'
+
 const Navbar = () => {
 
 	return (
-		<nav>
-			<li>
+		<nav className={styles.nav}>
+			<li className={styles.navButton}>
 				<NavLink to="/">Home</NavLink>
 			</li>
-			<li>
+			<li className={styles.navButton}>
 				<NavLink to="/profile">Profile</NavLink>
 			</li>
-			<li>
+			<li className={styles.navButton}>
 				<NavLink to="/liked">Liked Photos</NavLink>
 			</li>
 		</nav>
