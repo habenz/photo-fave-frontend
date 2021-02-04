@@ -10,7 +10,10 @@
 			- fetch call to add user on reg page 
 				- ??? headers: {'Content-Type': 'application/json'}
 				- https://stackoverflow.com/questions/39842013/fetch-post-with-body-data-not-working-params-empty
-			- added action to register user
+			- added actions to register and login users. used thunks to make the api calls in the action
+				- added api endpoint to get user by username
+			- added list of photos to redux state 
+				- (kind of a silly? design choice since list of photos can't change without leaving the page)
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
