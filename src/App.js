@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -10,15 +10,6 @@ import Register from './components/Register';
 const App = () => {
 
   const loginInfo = useSelector(state => state.login);
-
-  // const dispatch = useDispatch();
-
-  // useEffect(() => {
-
-  // }, [dispatch]); 
-  // why pass dispatch as a dependancy? https://stackoverflow.com/a/58061735
-
-
 
   return (
     <div className="App">
