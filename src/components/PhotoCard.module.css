@@ -1,0 +1,9 @@
+.card {
+	height: 30vh;
+/*	width: 90%;
+*/	overflow: hidden;
+}
+
+.img {
+	width: 33vw;
+}

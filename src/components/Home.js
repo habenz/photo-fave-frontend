@@ -1,14 +1,13 @@
 import React, {useEffect} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
-import { getAllPhotos } from '../redux/photoActions.js'
+import { useDispatch } from 'react-redux';
+import { getAllPhotos } from '../redux/photoActions.js';
+import PhotoGrid from './PhotoGrid';
 // Font-awesome imports
 //https://www.digitalocean.com/community/tutorials/how-to-use-font-awesome-5-with-react
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Home = () => {
-	const photos = useSelector(state => state.photos);
-
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -22,7 +21,7 @@ const Home = () => {
 				<FontAwesomeIcon icon={faUser} />
 			</header>
 
-			{/*<PhotoGrid>*/}
+			<PhotoGrid/>
 		</div>
 		)
 }
