@@ -9,7 +9,7 @@ const PhotoGrid = () => {
 
 	return (
 		<div className={styles.grid}>
-			{photos.map(photo => <PhotoCard photo={photo}/>)}
+			{photos.map(photo => <PhotoCard photo={photo} key={photo.["_id"]}/>)}
 		</div>
 	)
 }

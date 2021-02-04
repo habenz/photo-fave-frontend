@@ -1,3 +1,6 @@
+# Welcome to Photo Fave!
+This project was initially conceptualized as a tool to allow creative professionals to create collections of images from anywhere on the Internet for inspiration. Even though this is a very Pintrest-like concept, I have taken a lot of UI cues from Instagram. I hope you enjoy!
+
 ## Steps I Followed:
 	- made trello board to document requirements and possible object models [trello](https://trello.com/b/NIe6eTfM/photo-app-mod-2-final-project)
 	- Set Up Mongodb on Atlas and created models, and basic routes
@@ -15,6 +18,8 @@
 			- added list of photos to redux state 
 				- (kind of a silly? design choice since list of photos can't change without leaving the page)
 			- added nav bar to app.js and made dummy pages
+			- wrote actions to get photos and added photo grid
+			- added CSS to login page to improve developer QoL
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

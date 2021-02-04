@@ -1,0 +1,74 @@
+.pageWrapper {
+	display: flex;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+}
+
+.loginWrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 0 5rem;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	background-color: white;
+	border: solid lightgrey .05rem;
+	padding: 5vw;
+}
+
+.img{
+	height: 90vh;
+	border-radius: 1rem;
+}
+
+.goToRegister {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+
+	background-color: white;
+	border: solid lightgrey .05rem;
+	padding: .5rem;
+	margin-top: 1.5rem;
+}
+.goToRegister a {
+	text-decoration: none;
+	font-weight: bold;
+	color: DodgerBlue;
+	font-size: 120%;
+}
+
+/*copied from register css. should probably consolidate
+	however there are some minor differences
+*/
+.loginWrapper h1 {
+	margin-bottom: 5vw;
+}
+
+.loginWrapper input {
+	display: inline-block;
+	margin-bottom: 1rem;
+	background-color: ghostwhite;
+
+	border-style: solid;
+	border-width: thin;
+	border-radius: .1rem;
+	padding: .5rem;
+	font-size: 110%;
+}
+
+.loginWrapper button {
+	font-size: 140%;
+    margin-top: 1rem;
+    padding: .5rem;
+    border: none;
+    border-radius: .5rem;
+    background-color: lightblue;
+}
