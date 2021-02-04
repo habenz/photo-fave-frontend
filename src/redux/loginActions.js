@@ -41,13 +41,14 @@ export const login = ({username, password}, history) => {
 					//wrong password
 				}
 			})
-			// flesh this out
 			.catch(err => console.log(err));
 
 	}
 }
 
 export const logout = () => {
-
+	return {
+		type: LOGOUT
+	}
 }
 

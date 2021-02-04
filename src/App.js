@@ -1,6 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, NavLink } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, NavLink, Link } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
+import { logout } from './redux/loginActions.js';
 
 import Login from './components/Login';
 import Register from './components/Register';
@@ -14,6 +15,12 @@ import LikedPhotos from './components/LikedPhotos';
 const App = () => {
 
   const loginInfo = useSelector(state => state.login);
+  const dispatch = useDispatch();
+
+  const triggerLogout = () => {
+    dispatch(logout());
+    // maybe add a logout to the photo reducer as well
+  }
 
   return (
     <div className="App">
@@ -43,6 +50,11 @@ const App = () => {
             <LikedPhotos/>
           </Route>
         </Switch>
+        {loginInfo.isLoggedIn && 
+          <button onClick={triggerLogout}
+            style={{position:"fixed", bottom:"1rem", right:".5rem"}}>
+            <Link to="/">Log Out </Link> 
+          </button>}
     </Router>
     </div>
   );
