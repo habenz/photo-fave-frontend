@@ -1,10 +1,14 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 
 import Login from './components/Login';
-import Home from './components/Home';
 import Register from './components/Register';
+import Home from './components/Home';
+import Navbar from './components/Navbar';
+import Profile from './components/Profile';
+import LikedPhotos from './components/LikedPhotos';
+
 
 
 const App = () => {
@@ -14,6 +18,7 @@ const App = () => {
   return (
     <div className="App">
     <Router>
+        {loginInfo.isLoggedIn && <Navbar/>}
         {/*
           A <Switch> looks through all its children <Route>
           elements and renders the first one whose path
@@ -26,8 +31,16 @@ const App = () => {
             {/*if logged in home page, if not, login/register page*/}
             {loginInfo.isLoggedIn ? <Home /> : <Login/>}
           </Route>
-          <Route exact path="/register">
+          <Route path="/register">
             <Register/>
+          </Route>
+
+          <Route path="/profile">
+            <Profile/>
+          </Route>
+
+          <Route path="/liked">
+            <LikedPhotos/>
           </Route>
         </Switch>
     </Router>
