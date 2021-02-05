@@ -11,7 +11,7 @@ const Login = () => {
 	const dispatch = useDispatch();
 	const history = useHistory();
 
-	// ok to use compent state for form input, src: redux docs
+	// ok to use component state for form input, src: redux docs
 	const [inputs, setValue] = useState({
 		username: '',
 		password: ''

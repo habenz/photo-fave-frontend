@@ -20,7 +20,7 @@ const Register = () => {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		console.log("submit", inputs.username, inputs.password);
-		dispatch(register(inputs, history))
+		dispatch(register(inputs, history));
 	}
 
 	const handleChange = (event) => {

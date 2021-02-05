@@ -5,7 +5,7 @@ import {REGISTER, LOGIN, LOGOUT} from './actionTypes.js';
 const initialState = {
 	isLoggedIn: false,
 	userName: '',
-	userId: ''
+	user: {}
 }
 
 const reducer = (state = initialState, action) => {

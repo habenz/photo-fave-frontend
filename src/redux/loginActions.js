@@ -14,18 +14,27 @@ export const register = ({ username, password }, history) => {
 		body: JSON.stringify({ username, password })
 	})
 		.then((response) => {
-			console.log("response",response);
-
 			if (response.status === 201) {
-				dispatch({type:REGISTER, payload:{username, password }})
-				history.push('/');
+				return response.json();
 			} else {
-				// some kind of error handling here
+				throw response.status;
 			}
-			return response.json();
 		})
+		// no need for params here
+		.then(() => fetch(`${API_URL_BASE}/users/name/${username}`))
+		.then(response => response.json())
+		.then(json => {
+			dispatch({type:REGISTER, payload:{
+				username,
+				password,
+				user: json
+				}})
+			history.push('/');
+		})
+		.catch(err => console.log('Error in register action: ', err));
   };
 }
+
 
 export const login = ({username, password}, history) => {
 	return dispatch => {
@@ -35,13 +44,17 @@ export const login = ({username, password}, history) => {
 			.then(json => {
 				console.log("in login action", json)
 				if (password === json.password) {
-					dispatch({type: LOGIN, payload:{username, password}});
+					dispatch({type: LOGIN, payload:{
+						username, 
+						password,
+						user: json
+					}});
 					history.push('/');
 				} else {
 					//wrong password
 				}
 			})
-			.catch(err => console.log(err));
+			.catch(err => console.log('Error in login action: ', err));
 
 	}
 }
