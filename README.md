@@ -27,7 +27,9 @@ This project was initially conceptualized as a tool to allow creative profession
 ##### Handy discoveries
 - very handy to get list of docs by id https://stackoverflow.com/a/8304213
 	- although 
-			mongoose.Types.ObjectId(idString) seems unnecessary 
+			mongoose.Types.ObjectId(idString) seems unnecessary
+- to count number of lines (for vanity really)
+	git ls-files ./src | grep -E ".*(js|css)" | xargs wc -l
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { updatePhotosWithLike } from '../redux/photoActions.js';
+import { updatePhotosWithLike, removeLike } from '../redux/photoActions.js';
 
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,18 +17,9 @@ const PhotoCard = ({photo}) => {
 	const likePic = () => {
 		// add functionality here
 		if (!isLiked){
-			// fetch('http://localhost:5000/photos/like', {
-			// 	method: 'PATCH',
-			// 	headers: {'Content-Type': 'application/json'},
-			// 	body: JSON.stringify({ userId, photoId:photo._id })
-			// })
-			// .then(() => fetch('http://localhost:5000/users/like/', {
-			// 	method: 'PATCH',
-			// 	headers: {'Content-Type': 'application/json'},
-			// 	body: JSON.stringify({ userId, photoId:photo._id })
-			// }))
-			// .catch(err => console.log('Error in PhotoCard:', err))
 			dispatch(updatePhotosWithLike(userId, photo._id));
+		} else {
+			dispatch(removeLike(userId, photo._id));
 		}
 	}
 
