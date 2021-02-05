@@ -1,4 +1,4 @@
-import {ALL_PHOTOS, USER_PHOTOS} from './actionTypes.js';
+import {ALL_PHOTOS, USER_PHOTOS, USER_LIKED_PHOTOS} from './actionTypes.js';
 
 const API_URL_BASE = 'http://localhost:5000'
 
@@ -25,6 +25,17 @@ export const getUserPhotos = (username) => {
 	}
 }
 
+export const getUserLikedPhotos = (username) => {
+	return dispatch => {
+		fetch(`${API_URL_BASE}/users/name/${username}`)
+			.then(response => response.json())
+			.then(json => json._id) // get the id from the username
+			.then(id => fetch(`${API_URL_BASE}/users/liked-photos/${id}`)) // use that to get list of photos
+			.then(response => response.json())
+			.then(json => dispatch({type: USER_LIKED_PHOTOS, payload: json}))
+  			.catch(err => console.log('getUserPhotos call:', err))		
+	}
+}
 // export const addPhoto = (username, photoUrl) => {
 // 	return dispatch => {
 // 		const url = `${API_URL_BASE}/photos/add`;
