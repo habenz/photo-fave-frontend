@@ -1,4 +1,4 @@
-import {ALL_PHOTOS, USER_PHOTOS, USER_LIKED_PHOTOS} from './actionTypes.js';
+import {ALL_PHOTOS, USER_PHOTOS, USER_LIKED_PHOTOS, ADD_LIKE_TO_PHOTO} from './actionTypes.js';
 
 const API_URL_BASE = 'http://localhost:5000'
 
@@ -34,6 +34,23 @@ export const getUserLikedPhotos = (username) => {
 			.then(response => response.json())
 			.then(json => dispatch({type: USER_LIKED_PHOTOS, payload: json}))
   			.catch(err => console.log('getUserPhotos call:', err))		
+	}
+}
+// AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+export const updatePhotosWithLike = (userId, photoId) => {
+	return dispatch => {
+		fetch('http://localhost:5000/photos/like', {
+			method: 'PATCH',
+			headers: {'Content-Type': 'application/json'},
+			body: JSON.stringify({ userId, photoId })
+		})
+		.then(() => fetch('http://localhost:5000/users/like/', {
+			method: 'PATCH',
+			headers: {'Content-Type': 'application/json'},
+			body: JSON.stringify({ userId, photoId })
+		}))
+		.then(() => dispatch({type: ADD_LIKE_TO_PHOTO, payload: {userId, photoId}}))
+		.catch(err => console.log('Error in photo actions:', err))
 	}
 }
 // export const addPhoto = (username, photoUrl) => {

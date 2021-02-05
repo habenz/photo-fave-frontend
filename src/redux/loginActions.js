@@ -31,7 +31,10 @@ export const register = ({ username, password }, history) => {
 				}})
 			history.push('/');
 		})
-		.catch(err => console.log('Error in register action: ', err));
+		.catch(err => {
+			console.log('Error in register action: ', err);
+			alert(`Something went wrong. Try something else. error code: ${err}`);
+		});
   };
 }
 

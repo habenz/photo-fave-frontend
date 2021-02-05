@@ -21,6 +21,7 @@ This project was initially conceptualized as a tool to allow creative profession
 		- wrote actions to get photos and added photo grid
 		- added CSS to login page to improve developer QoL
 		- add like functionality https://trello.com/c/08AQ5gtZ/40-add-like-functionality
+		- add unlike functionality https://trello.com/c/biLodIfL/46-add-unlike-functionality
 
 
 ##### Handy discoveries
