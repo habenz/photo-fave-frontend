@@ -1,0 +1,17 @@
+.addButtonWrapper {
+	position: fixed;
+	bottom: 2rem;
+	left: 3rem;
+}
+
+.add {
+	font-size: 350%;
+	border-radius: 50%;
+	border-color: lightgrey;
+	padding: 1rem 1.4rem;
+	background-color: lightgreen;
+}
+
+.add:focus {
+	outline: none;
+}

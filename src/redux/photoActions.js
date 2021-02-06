@@ -1,9 +1,9 @@
 import {ALL_PHOTOS, USER_PHOTOS, USER_LIKED_PHOTOS,
-	ADD_LIKE_TO_PHOTO, REMOVE_LIKE} from './actionTypes.js';
+	ADD_LIKE_TO_PHOTO, REMOVE_LIKE, ADD_PHOTO} from './actionTypes.js';
 
 const API_URL_BASE = 'http://localhost:5000'
 
-// could be a big problem given enough photos
+// getting ALL photos could be a big problem given enough photos
 export const getAllPhotos = () => {
 	return dispatch => {
   		const url = API_URL_BASE+"/photos/";
@@ -71,13 +71,16 @@ export const removeLike = (userId, photoId) => {
 		.catch(err => console.log('Error in photo actions remove like:', err))
 	}
 }
-// export const addPhoto = (username, photoUrl) => {
-// 	return dispatch => {
-// 		const url = `${API_URL_BASE}/photos/add`;
-// 		fetch(url, {
-// 			method: 'POST',
-// 			headers: {'Content-Type': 'application/json'}, // not sure what this is but it's needed
-// 			body: JSON.stringify({ username, password })
-// 		})
-// 	}
-// }
+export const addPhoto = ( owner_uid, url, name) => {
+	return dispatch => {
+		const endpointURL = `${API_URL_BASE}/photos/add`;
+		fetch(endpointURL, {
+			method: 'POST',
+			headers: {'Content-Type': 'application/json'}, // not sure what this is but it's needed
+			body: JSON.stringify({ owner_uid, url, name })
+		})
+			.then(res => res.json())
+			.then(json => dispatch({type: ADD_PHOTO, payload:json}))
+			.catch(err => console.log("Error in add photo action", err));
+	}
+}
