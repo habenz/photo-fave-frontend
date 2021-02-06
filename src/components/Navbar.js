@@ -8,13 +8,13 @@ const Navbar = () => {
 	return (
 		<nav className={styles.nav}>
 			<li className={styles.navButton}>
-				<NavLink to="/">Home</NavLink>
+				<NavLink exact to="/" activeClassName={styles.selected}>Home</NavLink>
 			</li>
 			<li className={styles.navButton}>
-				<NavLink to="/profile">Profile</NavLink>
+				<NavLink to="/profile" activeClassName={styles.selected}>Profile</NavLink>
 			</li>
 			<li className={styles.navButton}>
-				<NavLink to="/liked">Liked Photos</NavLink>
+				<NavLink to="/liked" activeClassName={styles.selected}>Liked Photos</NavLink>
 			</li>
 		</nav>
 		)

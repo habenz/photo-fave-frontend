@@ -7,6 +7,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
+import Header from './components/Header';
 import Profile from './components/Profile';
 import LikedPhotos from './components/LikedPhotos';
 
@@ -26,6 +27,7 @@ const App = () => {
     <div className="App">
     <Router>
         {loginInfo.isLoggedIn && <Navbar/>}
+        {loginInfo.isLoggedIn && <Header/>}
         {/*
           A <Switch> looks through all its children <Route>
           elements and renders the first one whose path

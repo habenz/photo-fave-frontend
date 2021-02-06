@@ -22,6 +22,8 @@ This project was initially conceptualized as a tool to allow creative profession
 		- added CSS to login page to improve developer QoL
 		- add like functionality https://trello.com/c/08AQ5gtZ/40-add-like-functionality
 		- add unlike functionality https://trello.com/c/biLodIfL/46-add-unlike-functionality
+			- slight lag with like and unlike
+		- adding photos https://trello.com/c/yIX2i2Pn/47-add-a-photo-functionality
 
 
 ##### Handy discoveries

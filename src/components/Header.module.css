@@ -1,0 +1,13 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.icon {
+    border: solid lightgrey .1rem;
+    border-radius: 50%;
+    padding: .5rem .6rem;
+    font-size: 150%;
+    color: grey;
+}

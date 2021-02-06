@@ -1,14 +1,26 @@
 .nav {
 	display: flex;
 	margin: .5rem 0;
+	border-bottom: solid .1rem lightgrey;
 }
 
 .navButton {
 	list-style: none;
 	margin-right: 1.2rem;
+	padding: .5rem;
+	margin-bottom: -.1rem;
+
 }
 
 .navButton a {
 	text-decoration: none;
 	font-size: 120%;
+	color: dimgrey;
+	padding: .5rem;
+	border-radius: .5rem .5rem 0 0;
+
+}
+
+.selected {
+	background-color: lightgrey;
 }
