@@ -29,6 +29,9 @@ const PhotoCard = ({photo}) => {
 			<button className={styles.like} onClick={likePic}>
 				<FontAwesomeIcon icon={faHeart} style={{color: heartColor}}/>
 			</button>
+			<div className={styles.likeCount}>
+				{photo.likes.length}
+			</div>
 		</div>
 	)
 }

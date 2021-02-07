@@ -2,3 +2,9 @@ body {
 	margin: 0 1rem;
 	background-color: ghostwhite;
 }
+
+h1, h2 {
+	font-family: 'Quicksand', sans-serif;
+	font-size: 250%;
+	color: darkslateblue;
+}
