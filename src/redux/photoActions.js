@@ -4,9 +4,11 @@ import {ALL_PHOTOS, USER_PHOTOS, USER_LIKED_PHOTOS,
 const API_URL_BASE = 'http://localhost:5000'
 
 // getting ALL photos could be a big problem given enough photos
-export const getAllPhotos = () => {
+const toQueryStr = obj => '?'+Object.keys(obj).map(name => `${name}=${obj[name]}`).join('&');
+
+export const getAllPhotos = (sortCriteria={}) => {
 	return dispatch => {
-  		const url = API_URL_BASE+"/photos/";
+  		const url = API_URL_BASE+"/photos"+ toQueryStr(sortCriteria);
   		fetch(url)
   			.then(response => response.json())
   			.then(json => dispatch({type: ALL_PHOTOS, payload: json}))

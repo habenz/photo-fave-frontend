@@ -7,13 +7,12 @@ const Home = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		dispatch(getAllPhotos());
+		// pass an object representing the sort
+		dispatch(getAllPhotos({like_count:'-1', createdAt:'-1'}));
 	}, [dispatch]); //why pass dispatch as a dependency? https://stackoverflow.com/a/58061735
 
 	return (
 		<div id="home">
-
-
 			<PhotoGrid/>
 		</div>
 		)
