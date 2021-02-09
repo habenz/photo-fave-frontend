@@ -1,38 +1,39 @@
 # Welcome to Photo Fave!
 This project was initially conceptualized as a tool to allow creative professionals to create collections of images from anywhere on the Internet for inspiration. Even though this is a very Pintrest-like concept, I have taken a lot of UI cues from Instagram. I hope you enjoy!
 
-## Steps I Followed:
-	- made trello board to document requirements and possible object models [trello](https://trello.com/b/NIe6eTfM/photo-app-mod-2-final-project)
-	- Set Up Mongodb on Atlas and created models, and basic routes
+Problem: As a creative professional it can often be helpful to draw images from the internet as inspiration, but tedious to download and manage their storage on your local machine. With Photo Fave, you can store just the image url, and build a visual collection of images to inspire you!
 
-	- Front end:
-		- begin with a front page with login
-			- set up redux folder
-			- set up login reducer and master reducer
-			- set ups store, and then conditionally render home page or login based on state
-			- fetch call to add user on reg page 
-				- ??? headers: {'Content-Type': 'application/json'}
-				- https://stackoverflow.com/questions/39842013/fetch-post-with-body-data-not-working-params-empty
-			- added actions to register and login users. used thunks to make the api calls in the action
-				- added api endpoint to get user by username
-		- added list of photos to redux state 
-			- (kind of a silly? design choice since list of photos can't change without leaving the page)
-		- added nav bar to app.js and made dummy pages
-		- wrote actions to get photos and added photo grid
-		- added CSS to login page to improve developer QoL
-		- add like functionality https://trello.com/c/08AQ5gtZ/40-add-like-functionality
-		- add unlike functionality https://trello.com/c/biLodIfL/46-add-unlike-functionality
-			- slight lag with like and unlike
-		- adding photos https://trello.com/c/yIX2i2Pn/47-add-a-photo-functionality
+Check out my Trello board to see some progress: [trello](https://trello.com/b/NIe6eTfM/photo-app-mod-2-final-project)
+### Frontend:
 
+Used Redux to store current user login and current pictures:
 
-##### Handy discoveries
-- very handy to get list of docs by id https://stackoverflow.com/a/8304213
-	- although 
-			mongoose.Types.ObjectId(idString) seems unnecessary
-- to count number of lines (for vanity really)
-	git ls-files ./src | grep -E ".*(js|css)" | xargs wc -l
+###### User
+	{
+		isLoggedIn: <boolean>,
+		userName: <String from backend>,
+		user: <entire user document>
+	}
 
+###### Pictures
+A sorted array of Photo documents from the backend
+
+### Backend: 
+I used two collections, stored in MongoDB Atlas, and accessed through Mongoose
+
+| User Model              | Photo Model  |
+|-------------------------|--------------|
+| username: unique String | owner_uid    |
+| password                | name         |
+| liked_photos: []        | url          |
+| commented_photos: []    | likes: []    |
+| timestamps              | like_count   |
+|                         | comments: [] |
+|                         | timestamps   |
+
+I followed the following tutorials to set up my backend:
+* [full stack app](https://www.youtube.com/watch?v=7CqJlxBYj-M)
+* [JS Mastery](https://www.youtube.com/watch?v=aibtHnbeuio)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
