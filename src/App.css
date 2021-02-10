@@ -1,0 +1,14 @@
+.logout-button {
+	position: fixed;
+    bottom: 1rem;
+    right: 0.5rem;
+    background-color: lightblue;
+    border: none;
+    border-radius: .5rem;
+    padding: .5rem;
+}
+
+.logout-button a {
+	text-decoration: none;
+	color: snow;
+}

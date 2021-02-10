@@ -11,6 +11,7 @@ import Header from './components/Header';
 import Profile from './components/Profile';
 import LikedPhotos from './components/LikedPhotos';
 
+import './App.css';
 
 
 const App = () => {
@@ -53,8 +54,7 @@ const App = () => {
           </Route>
         </Switch>
         {loginInfo.isLoggedIn && 
-          <button onClick={triggerLogout}
-            style={{position:"fixed", bottom:"1rem", right:".5rem"}}>
+          <button className="logout-button" onClick={triggerLogout}>
             <Link to="/">Log Out </Link> 
           </button>}
     </Router>
