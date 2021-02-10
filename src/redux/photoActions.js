@@ -42,12 +42,12 @@ export const getUserLikedPhotos = (username) => {
 
 export const updatePhotosWithLike = (userId, photoId) => {
 	return dispatch => {
-		fetch('http://localhost:5000/photos/like', {
+		fetch(`${API_URL_BASE}/photos/like`, {
 			method: 'PATCH',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({ userId, photoId })
 		})
-		.then(() => fetch('http://localhost:5000/users/like/', {
+		.then(() => fetch(`${API_URL_BASE}/users/like/`, {
 			method: 'PATCH',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({ userId, photoId })
@@ -59,12 +59,12 @@ export const updatePhotosWithLike = (userId, photoId) => {
 
 export const removeLike = (userId, photoId) => {
 	return dispatch => {
-		fetch('http://localhost:5000/photos/unlike', {
+		fetch(`${API_URL_BASE}/photos/unlike`, {
 			method: 'PATCH',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({ userId, photoId })
 		})
-		.then(() => fetch('http://localhost:5000/users/unlike', {
+		.then(() => fetch(`${API_URL_BASE}/users/unlike`, {
 			method: 'PATCH',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({ userId, photoId })
