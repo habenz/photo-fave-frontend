@@ -25,13 +25,15 @@ const PhotoCard = ({photo}) => {
 		}
 	}
 
-	const toDetailView = () => {
+	const toDetailView = event => {
 		toggleDetailView(!detailView);
 	}
 
 	return (
-		<div className={styles.card} onClick={toDetailView}>
-			<img className={styles.img} src={photo.url} alt={photo.name}/>
+		<>
+		{detailView && <PhotoModal photo={photo} toggleModal={toDetailView}/>}
+		<div className={styles.card}>
+			<img className={styles.img} src={photo.url} alt={photo.name} onClick={toDetailView}/>
 			<button className={styles.like} onClick={likePic}>
 				<FontAwesomeIcon icon={faHeart} style={{color: heartColor}}/>
 			</button>
@@ -39,6 +41,7 @@ const PhotoCard = ({photo}) => {
 				{photo.likes.length}
 			</div>
 		</div>
+		</>
 	)
 }
 
