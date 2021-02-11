@@ -17,10 +17,27 @@ const Register = () => {
 		password: ''
 	});
 
+	const validateNewUserInfo = ({username,password}) => {
+		if (username.length < 3){
+			return [false, 'Username must be at least 3 characters'];
+		} else if (password.length < 7){
+			return [false, 'Password must be at least 7 characters'];
+		} 
+		return [true, 'no issue'];
+	}
+
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		console.log("submit", inputs.username, inputs.password);
-		dispatch(register(inputs, history));
+		const [isValid, issueStatement] = validateNewUserInfo(inputs);
+		if (isValid){
+			dispatch(register(inputs, history));
+		} else {
+			alert(issueStatement);
+			setValue({
+				username: '',
+				password: ''
+			});
+		}
 	}
 
 	const handleChange = (event) => {

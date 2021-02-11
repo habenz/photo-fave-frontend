@@ -33,13 +33,13 @@ export const register = ({ username, password }, history) => {
 		})
 		.catch(err => {
 			console.log('Error in register action: ', err);
-			alert(`Something went wrong. Try something else. error code: ${err}`);
+			alert(`Something went wrong. Username is probably already in use. Try something else. error code: ${err}`);
 		});
   };
 }
 
-
-export const login = ({username, password}, history) => {
+// is it necessary to pass ALL these params?
+export const login = ({username, password}, history, setValue, inputs) => {
 	return dispatch => {
 		const url = `${API_URL_BASE}/users/name/${username}`;
 		fetch(url)
@@ -55,6 +55,8 @@ export const login = ({username, password}, history) => {
 					history.push('/');
 				} else {
 					//wrong password
+					setValue({...inputs, password:''});
+					alert("Wrong password!");
 				}
 			})
 			.catch(err => console.log('Error in login action: ', err));

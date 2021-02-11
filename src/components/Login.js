@@ -21,9 +21,8 @@ const Login = () => {
 		event.preventDefault();
 		console.log("submit", inputs.username, inputs.password);
 
-		dispatch(login(inputs, history));
+		dispatch(login(inputs, history, setValue, inputs));
 		// If password is wrong page won't redirect
-		setValue({...inputs, password:''});
 	}
 
 	const handleChange = (event) => {
