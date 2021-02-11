@@ -1,5 +1,5 @@
 import {ALL_PHOTOS, USER_PHOTOS, USER_LIKED_PHOTOS,
-	ADD_LIKE_TO_PHOTO, REMOVE_LIKE, ADD_PHOTO} from './actionTypes.js';
+	ADD_LIKE_TO_PHOTO, REMOVE_LIKE, ADD_PHOTO, DELETE_PHOTO} from './actionTypes.js';
 
 // state represents a list of photos on the screen
 const reducer = (state=[], action) => {
@@ -34,6 +34,8 @@ const reducer = (state=[], action) => {
 		}
 		case ADD_PHOTO:
 			return [...state, action.payload];
+		case DELETE_PHOTO:
+			return state.filter(photo => photo._id !== action.payload)
 		default:
 			return state;
 	}

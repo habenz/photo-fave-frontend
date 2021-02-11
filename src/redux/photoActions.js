@@ -1,5 +1,5 @@
 import {ALL_PHOTOS, USER_PHOTOS, USER_LIKED_PHOTOS,
-	ADD_LIKE_TO_PHOTO, REMOVE_LIKE, ADD_PHOTO} from './actionTypes.js';
+	ADD_LIKE_TO_PHOTO, REMOVE_LIKE, ADD_PHOTO, DELETE_PHOTO} from './actionTypes.js';
 
 const API_URL_BASE = 'http://localhost:5000'
 
@@ -84,5 +84,17 @@ export const addPhoto = ( owner_uid, url, name) => {
 			.then(res => res.json())
 			.then(json => dispatch({type: ADD_PHOTO, payload:json}))
 			.catch(err => console.log("Error in add photo action", err));
+	}
+}
+
+export const deletePhoto = (photoId) => {
+	return dispatch => {
+		fetch(`${API_URL_BASE}/photos/delete/${photoId}`,{
+			method: "DELETE",
+			headers: {'Content-Type': 'application/json'}
+		})
+			.then(res => res.json())
+			.then(json => dispatch({type: DELETE_PHOTO, payload:photoId}))
+			.catch(err => console.log("Error in delete photo action", err));
 	}
 }

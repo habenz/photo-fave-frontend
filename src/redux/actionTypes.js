@@ -10,3 +10,4 @@ export const USER_LIKED_PHOTOS = 'USER_LIKED_PHOTOS';
 export const ADD_LIKE_TO_PHOTO = 'ADD_LIKE_TO_PHOTO';
 export const REMOVE_LIKE = 'REMOVE_LIKE';
 export const ADD_PHOTO = 'ADD_PHOTO';
+export const DELETE_PHOTO = 'DELETE_PHOTO';

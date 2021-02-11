@@ -24,7 +24,7 @@ const Profile = () => {
 
 	return (
 		<div >
-			<PhotoGrid/>
+			<PhotoGrid isProfile={true}/>
 			<div className={styles.addButtonWrapper}>
 				{login.isLoggedIn &&
 				<button className={styles.add} onClick={toggleModal}>

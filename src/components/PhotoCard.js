@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { updatePhotosWithLike, removeLike } from '../redux/photoActions.js';
+import { updatePhotosWithLike, removeLike, deletePhoto } from '../redux/photoActions.js';
 
 import PhotoModal from './PhotoModal';
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faHeart,faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import styles from './PhotoCard.module.css';
-
-const PhotoCard = ({photo}) => {
+// Add isProfile flag to redux state instead?
+const PhotoCard = ({photo, isProfile=false}) => {
 	const userId = useSelector(state => state.login.user._id);
 	const dispatch = useDispatch();
 	const [detailView, toggleDetailView] = useState(false);
@@ -29,6 +29,10 @@ const PhotoCard = ({photo}) => {
 		toggleDetailView(!detailView);
 	}
 
+	const triggerDelete = () => {
+		dispatch(deletePhoto(photo._id));
+	}
+
 	return (
 		<>
 		{detailView && <PhotoModal photo={photo} toggleModal={toDetailView}/>}
@@ -40,6 +44,10 @@ const PhotoCard = ({photo}) => {
 			<div className={styles.likeCount}>
 				{photo.likes.length}
 			</div>
+			{isProfile && 
+			<div className={styles.delete} onClick={triggerDelete}>
+				<FontAwesomeIcon icon={faMinusCircle} style={{color: "red"}}/>
+			</div>}
 		</div>
 		</>
 	)
